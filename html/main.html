@@ -29,6 +29,62 @@
 	.main .left .avatar{
 		margin-bottom: 20px;
 	}
+	.main .middle{
+		padding-left: 15px;
+		padding-right: 15px;
+		border-left: 1px solid #ddd;
+		border-right: 1px solid #ddd;
+	}
+	.main .middle .btn-post{
+		margin-top: 5px;
+		padding-left: 25px;
+		padding-right: 25px;
+	}
+	.main .middle .post{
+		padding-bottom: 60px;
+		border-bottom: 1px solid #ddd;
+	}
+	.main .middle .status-list{
+		padding-left: 0;
+	}
+	.main .middle .status-list li{
+		list-style-type: none;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		border-bottom: 1px solid #e9e9e9;
+	}
+	.main .middle .status-list .content{
+		margin-left: 60px;
+	}
+	.main .middle .status-list h4{
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.status-list .meta{
+		margin-top: 10px;
+		color: #999;
+		font-size: 12px;
+	}
+	.status-list .meta .actions a{
+		padding: 0 10px;
+	}
+	.main .right{
+		padding-left: 15px;
+	}
+	.main .right h2{
+		margin-top: 0;
+		font-size: 14px;
+		font-weight: bold;
+		border-bottom: 1px solid #e9e9e9;
+		padding-bottom: 10px;
+	}
+	.main .right .widget ul{
+		padding-left: 15px;
+		font-size: 13px;
+	}
+	.main .right .widget li{
+		margin: 5px 0;
+	}
 	</style>
 </head>
 
@@ -67,17 +123,106 @@
 				<img src="img/me.jpg" alt="54" width="96px" height="96px">
 			</div>
 			<ul>
-				<li><a href="">关注</a></li>
-				<li><a href="">粉丝</a></li>
+				<li><a href="">关注（33）</a></li>
+				<li><a href="">粉丝（128）</a></li>
 			</ul>
 			<ul>
 				<li><a href="">评论我的</a></li>
-				<li><a href="">提到我的</a></li>
+				<li><a href="">提到我的</a> <span class="label label-danger">3</span></li>
 				<li><a href="">私信</a></li>
 			</ul>
 		</div>
-		<div class="middle pull-left">xxx</div>
-		<div class="right pull-left">xxxx</div>
+		<div class="middle pull-left">
+			<div class="post">
+				<form role="form">
+					<textarea class="form-control" rows="4"></textarea>
+					<button type="submit" class="btn btn-success pull-right btn-post">发布</button>
+				</form>
+			</div>
+				<ul class="status-list">
+					<li class="clearfix">
+						<div class="avatar pull-left">
+							<img width="50px" height="50px" src="img/me.jpg">
+						</div>
+						<div class="content">
+							<p>
+								<a href="">使劲飞：</a>
+							</p>
+							<h4><a href="">清七次快信的研究</a></h4>
+							<div class="summary">
+								利用闲暇时间做了一个Tesla的微信平台[大笑] 欢迎大家关注【特斯拉电动车】微信平台。 您可以扫描二维码加入或者添加微信号：teslamotorschina 建立此平台的初衷是让更多的人了解特斯拉电动车，尤其是你我身边很少上特斯拉官网了解信息的朋友，并希望电动车早日在中国普及。 平台的信息来自官网和
+							</div>
+							<div class="meta">
+								<div class="info pull-left"><a href="">今天 12:30</a></div>
+								<div class="actions pull-right">
+									<a href="">转发</a>|
+									<a href="">分享</a>|
+									<a href="">收藏</a>|
+									<a href="">评论</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="avatar pull-left">
+							<img width="50px" height="50px" src="img/me.jpg">
+						</div>
+						<div class="content">
+							<p>
+								<a href="">使劲飞：</a>
+							</p>
+							<h4><a href="">清七次快信的研究</a></h4>
+							<div class="summary">
+								利用闲暇时间做了一个Tesla的微信平台[大笑] 欢迎大家关注【特斯拉电动车】微信平台。 您可以扫描二维码加入或者添加微信号：teslamotorschina 建立此平台的初衷是让更多的人了解特斯拉电动车，尤其是你我身边很少上特斯拉官网了解信息的朋友，并希望电动车早日在中国普及。 平台的信息来自官网和
+							</div>
+							<div class="meta">
+								<div class="info pull-left"><a href="">今天 12:30</a></div>
+								<div class="actions pull-right">
+									<a href="">转发</a>|
+									<a href="">分享</a>|
+									<a href="">收藏</a>|
+									<a href="">评论</a>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li class="clearfix">
+						<div class="avatar pull-left">
+							<img width="50px" height="50px" src="img/me.jpg">
+						</div>
+						<div class="content">
+							<p>
+								<a href="">使劲飞：</a>
+							</p>
+							<h4><a href="">清七次快信的研究</a></h4>
+							<div class="summary">
+								利用闲暇时间做了一个Tesla的微信平台[大笑] 欢迎大家关注【特斯拉电动车】微信平台。 您可以扫描二维码加入或者添加微信号：teslamotorschina 建立此平台的初衷是让更多的人了解特斯拉电动车，尤其是你我身边很少上特斯拉官网了解信息的朋友，并希望电动车早日在中国普及。 平台的信息来自官网和
+							</div>
+							<div class="meta">
+								<div class="info pull-left"><a href="">今天 12:30</a></div>
+								<div class="actions pull-right">
+									<a href="">转发</a>|
+									<a href="">分享</a>|
+									<a href="">收藏</a>|
+									<a href="">评论</a>
+								</div>
+							</div>
+						</div>
+					</li>
+			</ul>
+		</div>
+		<div class="right pull-left">
+			<div class="widget">
+				<h2>今日话题</h2>
+				<ul>
+					<li><a href="">楼继伟：按揭贷款将纳入个税抵扣</a></li>
+					<li><a href="">券商投资逻辑：ROE如何提升</a></li>
+					<li><a href="">苏宁频换新装，急需基因重组</a></li>
+					<li><a href="">二级市场姐，在天涯</a></li>
+					<li><a href="">医药反腐日烈，远离潜规则依赖股！</a></li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 </div>
