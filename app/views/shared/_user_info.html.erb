@@ -1,0 +1,15 @@
+<div class="left pull-left">
+			<div class="avatar">
+				<img src="img/me.jpg" alt="54" width="96px" height="96px">
+				<p><%= link_to user.nick_name, user %></p>
+			</div>
+			<ul>
+				<li><%= link_to "关注（#{user.follower_ids.size}）", user %></li>
+				<li><%= link_to "关注（#{user.following_ids.size}）", user %></li>
+			</ul>
+			<ul>
+				<li><a href="">评论我的</a></li>
+				<li><a href="">提到我的</a> <span class="label label-danger">3</span></li>
+				<li><a href="">私信</a></li>
+			</ul>
+		</div>

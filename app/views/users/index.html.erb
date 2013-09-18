@@ -1,0 +1,13 @@
+	<div class="main container">
+		<%= render "shared/user_info", :user => @user %>
+		<div class="middle pull-left">
+			<%= render "shared/new_post" %>
+			<div class="alert alert-danger center prompt">有3条未读消息，点击更新！</div>
+			<ul class="status-list">
+				<% @mb_posts.each do |mb_post|%>
+					<%= render "mb_posts/mb_post", :mb_post => mb_post %>
+				<% end %>
+			</ul>
+		</div>
+		<%= render "shared/day_topic" %>
+	</div>

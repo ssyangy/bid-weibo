@@ -1,0 +1,20 @@
+<li class="clearfix">
+	<div class="avatar pull-left">
+		<img width="50px" height="50px" src="img/me.jpg">
+	</div>
+	<div class="content">
+		<p class="author">
+			<%= link_to mb_post.user.nick_name, mb_post.user %>
+		</p>
+		<h4><%= link_to mb_post.title, mb_post if mb_post.title %></h4>
+		<div class="summary">
+			<%= mb_post.content %>
+		</div>
+		<div class="meta">
+			<div class="info pull-left"><a href="">今天 12:30</a></div>
+				<div class="actions pull-right">
+					<a href="">转发(<%= mb_post.forwards_count %>)</a>|<a href="">分享</a>|<a href="">收藏</a>|<a href="">评论(<%= mb_post.replies_count %>)</a>
+				</div>
+			</div>
+		</div>
+	</li>

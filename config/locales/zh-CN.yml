@@ -1,0 +1,11 @@
+"zh-CN":
+  models:
+    users: ""
+    mb_posts: ""
+    mb_reply: ""
+  attributes:
+    users:
+      nick_name: "昵称"
+    mb_posts:
+      title: "标题"
+      content: "内容"

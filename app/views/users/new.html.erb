@@ -1,0 +1,25 @@
+
+
+<div class="main container">
+
+	<% if @user.errors.any? %>  
+ 	<div class="alert alert-block alert-error">
+   		<a class="close" data-dismiss='alert' href="#">×</a>
+   		<p><strong>有 <%= @user.errors.count %> 处问题导至无法保存:</strong></p>
+   		<ul>
+   			<% @user.errors.full_messages.each do |msg| %>
+     			<li><%= msg %></li>
+   			<% end %>
+   		</ul>
+ 	</div>
+	<% end %>
+
+	<div class="post">
+		<%= form_for @user, :role => 'role' do |f| %>
+  			<%= f.label :nick_name, '昵称：' %>
+  			<%= f.text_field :nick_name %>
+  			<%= f.hidden_field :user_id, :value => @user.user_id %>
+  			<%= f.submit '保存' %>
+		<% end %>
+	</div>
+</div>

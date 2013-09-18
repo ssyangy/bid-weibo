@@ -53,4 +53,6 @@ BidWeibo::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :mb_posts
+  resources :users, :path => "" 
 end

@@ -1,0 +1,11 @@
+	<div class="main container">
+		<%= render "shared/user_info", :user => @user %>
+		<div class="middle pull-left">
+			<ul class="status-list">
+				<% @mb_posts.each do |mb_post|%>
+					<%= render "mb_posts/mb_post", :mb_post => mb_post %>
+				<% end %>
+			</ul>
+		</div>
+		<%= render "shared/day_topic" %>
+	</div>
