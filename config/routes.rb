@@ -54,5 +54,5 @@ BidWeibo::Application.routes.draw do
   #     resources :products
   #   end
   resources :mb_posts
-  resources :users, :path => "" 
+  resources :users, :path => ""
 end

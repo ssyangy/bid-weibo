@@ -1,0 +1,10 @@
+		<%= form_for @user, :html => { :multipart => true } do |f| %>
+  			<%= f.label :nick_name, '昵称:' %>
+  			<%= f.text_field :nick_name %><br />
+  			<%= f.label :description, '个人简介:' %>
+  			<%= f.text_area :description %>
+  			<%= f.hidden_field :user_id, :value => @user.user_id %><br />
+  			<%= f.label :photo, '头像:' %>
+  			<%= f.file_field :photo %>
+  			<%= f.submit '保存' %>
+		<% end %>

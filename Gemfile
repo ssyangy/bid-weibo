@@ -7,6 +7,11 @@ gem 'rails', '4.0.0'
 #mongo
 gem 'mongoid', github:'mongoid/mongoid'
 
+#paperclip
+gem "mini_magick"
+gem "paperclip", '3.5.1'
+gem "mongoid-paperclip", github: 'fermin/mongoid-paperclip'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

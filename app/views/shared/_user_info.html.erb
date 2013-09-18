@@ -1,7 +1,8 @@
 <div class="left pull-left">
 			<div class="avatar">
-				<img src="img/me.jpg" alt="54" width="96px" height="96px">
+				<%= image_tag user.photo.url() %>
 				<p><%= link_to user.nick_name, user %></p>
+				<p><%= link_to '个人资料', edit_user_path(user) if user == current_user %></p>
 			</div>
 			<ul>
 				<li><%= link_to "关注（#{user.follower_ids.size}）", user %></li>
