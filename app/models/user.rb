@@ -3,15 +3,19 @@ require "mongoid_paperclip"
 class User
 	include Mongoid::Document
 	include Mongoid::Paperclip
+	include Mongoid::Timestamps
+	include Mongo::Followable::Followed
+    include Mongo::Followable::Follower
 	field :nick_name, :type => String
 	field :user_id,   :type => Integer
 	field :description
-	field :following_count
-	field :followers_count
+	#field :following_count
+	#field :followers_count
 	has_many :mb_posts
 	has_many :mb_replies
-	has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers    #关注
-    has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following    #粉丝
+	has_one :homeline
+	#has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers    #关注
+    #has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following    #粉丝
 
     validates :user_id, :presence => true, :uniqueness => true
     validates :nick_name, :format => {:with => /\A[\p{Han}\p{Alnum}\-_]{4,24}\z/, :message => '仅支持长度为4-24位的中英文，数字和"_"'}, :presence => true, :uniqueness => true
@@ -23,5 +27,12 @@ class User
     :default_style => :medium
     validates_attachment_content_type :photo, :content_type => /image/
     validates_attachment_size :photo, :less_than => 2.megabyte , :message => "图片不能大于2M"
+
+    after_create :create_homeline
+
+    def create_homeline
+    	return if self.homeline
+    	self.build_homeline.save
+    end
 
 end

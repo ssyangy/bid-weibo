@@ -3,14 +3,14 @@ class UsersController < ApplicationController
 	def index
 		if current_user
 		  	@user = current_user
-		    @mb_posts = MbPost.includes(:user).where(:user_id.in => current_user.following_ids)
+		    @mb_posts = MbPost.includes(:user).where(:id.in => @user.homeline.mb_post_ids)
 		else
 			redirect_to "http://passport.huabid.com/login"
 		end
 	end
 
 	def new
-		params[:user_id] = 104988
+		params[:user_id] = 1049
 		@user = User.find_by(:user_id => params[:user_id])
 		if @user
 			session[:user_id] = @user._id

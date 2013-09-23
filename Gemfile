@@ -6,6 +6,7 @@ gem 'rails', '4.0.0'
 
 #mongo
 gem 'mongoid', github:'mongoid/mongoid'
+gem 'mongo_followable'
 
 #paperclip
 gem "mini_magick"
