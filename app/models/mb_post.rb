@@ -17,10 +17,7 @@ class MbPost
 	after_create :update_homeline
 
 	def update_homeline
-		users = self.user.all_followers << self.user
-		users.each do |follower|
-      		follower.homeline.mb_post_ids << self.id
-      		follower.homeline.save
-    	end
+		self.user.userline.push(mb_post_ids: self.id)
+		Homeline.where(:user_id.in => self.user.follower_ids).push(mb_post_ids: self.id)
 	end
 end

@@ -1,0 +1,7 @@
+<div id="relation_<%= user.id %>">
+	<% if current_user.follower_of?(user) %>
+		已关注 <%= link_to '取消', friendship_path(user), :remote => true, :method => :delete, data: { confirm: '确认要取消关注?' } %>
+	<% else %>
+		<%= link_to '关注', friendships_path(:uid => user.id), :remote => true, :method => :post %>
+	<% end %>
+</div>

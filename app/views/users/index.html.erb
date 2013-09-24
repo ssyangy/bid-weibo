@@ -8,6 +8,7 @@
 					<%= render "mb_posts/mb_post", :mb_post => mb_post %>
 				<% end %>
 			</ul>
+			<%= will_paginate @mb_posts, :inner_window => 1 %>
 		</div>
 		<%= render "shared/day_topic" %>
 	</div>

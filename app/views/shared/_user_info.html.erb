@@ -3,6 +3,9 @@
 				<%= image_tag user.photo.url() %>
 				<p><%= link_to user.nick_name, user %></p>
 				<p><%= link_to '个人资料', edit_user_path(user) if user == current_user %></p>
+				<p>
+					<%= render "shared/friendship", :user => user if user != current_user %>
+				</p>
 			</div>
 			<ul>
 				<li><%= link_to "粉丝（#{user.followers_count}）", user %></li>

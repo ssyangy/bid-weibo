@@ -8,6 +8,10 @@ gem 'rails', '4.0.0'
 gem 'mongoid', github:'mongoid/mongoid'
 gem 'mongo_followable'
 
+#will_paginate
+gem "will_paginate_mongoid", "~> 2.0.1"
+gem 'bootstrap-will_paginate'
+
 #paperclip
 gem "mini_magick"
 gem "paperclip", '3.5.1'

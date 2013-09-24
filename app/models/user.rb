@@ -9,11 +9,13 @@ class User
 	field :nick_name, :type => String
 	field :user_id,   :type => Integer
 	field :description
+    field :login_count, :type => Integer, :default => 0
 	#field :following_count
 	#field :followers_count
 	has_many :mb_posts
 	has_many :mb_replies
 	has_one :homeline
+    has_one :userline
 	#has_and_belongs_to_many :following, :class_name => 'User', :inverse_of => :followers    #关注
     #has_and_belongs_to_many :followers, :class_name => 'User', :inverse_of => :following    #粉丝
 
@@ -28,11 +30,15 @@ class User
     validates_attachment_content_type :photo, :content_type => /image/
     validates_attachment_size :photo, :less_than => 2.megabyte , :message => "图片不能大于2M"
 
-    after_create :create_homeline
+    after_create :create_timeline
 
-    def create_homeline
-    	return if self.homeline
-    	self.build_homeline.save
+    def create_timeline
+    	self.build_homeline.save unless self.homeline
+        self.build_userline.save unless self.userline
+    end
+
+    def follower_ids
+        self.all_followers.map(&:id).insert(0,self.id)
     end
 
 end
