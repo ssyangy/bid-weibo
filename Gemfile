@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 
 #mongo
 gem 'mongoid', github:'mongoid/mongoid'
-gem 'mongo_followable'
+#gem 'mongo_followable'
 
 #will_paginate
 gem "will_paginate_mongoid", "~> 2.0.1"

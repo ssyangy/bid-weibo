@@ -52,4 +52,22 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def myfans
+		@users = current_user.followers
+	end
+
+	def myfollow
+		@users = current_user.followees
+	end
+
+	def fans
+		@user = User.find(params[:id])
+		@users = @user.followers
+	end
+
+	def follow
+		@user = User.find(params[:id])
+		@users = @user.followees
+	end
+
 end

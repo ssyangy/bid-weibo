@@ -54,6 +54,13 @@ BidWeibo::Application.routes.draw do
   #     resources :products
   #   end
   resources :mb_posts
-  resources :users, :key => :nickname, :path => ""
+  resources :users, :path => "" do
+    member do
+      get :myfans
+      get :myfollow
+      get :fans
+      get :follow
+    end
+  end
   resources :friendships
 end

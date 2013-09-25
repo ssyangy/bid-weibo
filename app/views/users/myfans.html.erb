@@ -1,0 +1,25 @@
+<div class="main container">
+	<%= render "shared/user_info", :user => current_user %>
+	<div class="middle pull-left">
+		<h4>关注我的人</h4>
+		<ul class="status-list">
+			<% @users.each do |user|%>
+				<li class="clearfix" id="myfans_<%= user.id %>">
+					<div class="avatar pull-left">
+						<%= image_tag user.photo.url(:thumb) %>
+					</div>
+					<div class="content">
+						<p class="author">
+							<%= link_to user.nick_name, user %>
+						</p>
+						<p>关注(<%= link_to user.followees_count, follow_user_path(user) %>) 粉丝(<%= link_to user.followers_count, fans_user_path(user) %>) 微博(<%= link_to user.mb_posts_count, user %>)</p>
+						<div class="summary">
+							<%= render "shared/friendship", :user => user %>
+						</div>
+				 	</div>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<%= render "shared/day_topic" %>
+</div>

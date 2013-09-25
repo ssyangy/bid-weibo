@@ -1,1 +1,1 @@
-$("#relation_<%= @user.id %>").html(' 已关注 <%= raw(link_to "取消", friendship_path(@user), :remote => true, :method => :delete, data: { confirm: "确认要取消关注?" }) %>');
+$("#relation_<%= @user.id %>").html('<%= escape_javascript(render "shared/friendship", :user => @user) %>');
