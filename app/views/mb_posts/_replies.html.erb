@@ -1,0 +1,15 @@
+<div class="post" style="margin-top:40px;">
+	<%= form_for @mb_reply, :remote => true, :role => "form" do |f| %>
+  			<%= f.text_area :content, :class => "form-control", :row => "4" %>
+  			<%= f.hidden_field :mb_post_id, :value => @mb_post.id %>
+  			<%= f.submit '保存', :class => "btn btn-success pull-right btn-post" %>
+	<% end %>
+</div>
+<div class="comments">
+	<h4>全部评论（<%= @mb_post.mb_replies_count %>）</h4>
+	<ul class="comment-list">
+		<% @mb_replies.each do |mb_reply| %>
+			<%= render "mb_replies/mb_reply", :mb_reply => mb_reply %>
+		<% end %>
+	</ul>
+</div>

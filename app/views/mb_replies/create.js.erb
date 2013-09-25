@@ -1,0 +1,7 @@
+<% if @mb_reply.errors.blank? %>
+  $(".comment-list").prepend("<%= escape_javascript(render(:partial => 'mb_reply', :locals => { :mb_reply => @mb_reply})) %>");
+  $("#mb_reply_content").val("");
+  $("#conversation_<%= @old_mb_reply.try(:id) %>").remove();
+<% else %>
+  alert("<%= @mb_reply.errors.full_messages %>");
+<% end %>

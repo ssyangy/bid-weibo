@@ -12,9 +12,11 @@
 		</div>
 		<div class="meta">
 			<div class="info pull-left"><%= mb_time(mb_post.try(:created_at)) %></div>
-				<div class="actions pull-right">
-					<%= link_to "删除", mb_post_path(mb_post), :method => :delete, :remote => true, data: { confirm: '确认要删除?' }, :class => "delete" if mb_post.user == current_user %><a href="">转发(<%= mb_post.forwards_count %>)</a>|<a href="">分享</a>|<a href="">收藏</a>|<a href="">评论(<%= mb_post.mb_replies_count %>)</a>
-				</div>
+			<div class="actions pull-right">
+				<%= link_to "删除", mb_post_path(mb_post), :method => :delete, :remote => true, data: { confirm: '确认要删除?' }, :class => "delete" if mb_post.user == current_user %><a href="">转发(<%= mb_post.forwards_count %>)</a>|<a href="">分享</a>|<a href="">收藏</a>|<%= link_to "评论(#{mb_post.mb_replies_count})", "javascript:void(0);", :action_data => "puid=#{mb_post.user.id}&uid=#{current_user.id}&pid=#{mb_post.id}", :class => "homepage_reply_link" %>
+			</div>
+			<div class="homepage_reply">
+
 			</div>
 		</div>
 	</li>
@@ -22,4 +24,5 @@
 <style type="text/css">
 a.delete { display: none; }
 li.clearfix:hover a.delete { display: inline; }
+.homepage_reply{border: solid 1px; height: 30px; display: none;}
 </style>

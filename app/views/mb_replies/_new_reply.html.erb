@@ -1,0 +1,8 @@
+<div class="post" style="margin-top:40px;" id="conversation_<%= @old_mb_reply.id %>">
+	<%= form_for @mb_reply, :remote => true, :role => "form" do |f| %>
+  			<%= f.text_area :content, :class => "form-control", :row => "4", :value => "回复@#{@user.nick_name}:" %>
+  			<%= f.hidden_field :mb_post_id, :value => @mb_post.id %>
+  			<%= hidden_field_tag "old_mb_reply", @old_mb_reply.id  %>
+  			<%= f.submit '保存', :class => "btn btn-success pull-right btn-post" %>
+	<% end %>
+</div>

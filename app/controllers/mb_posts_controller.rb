@@ -26,4 +26,14 @@ class MbPostsController < ApplicationController
 		end
 	end
 
+	def get_reply
+    @user = User.find params[:puid]
+    @mb_post = MbPost.find params[:pid]
+    @mb_replies = @mb_post.mb_replies
+    @mb_reply = MbReply.new
+    respond_to do |format|
+        format.html { render :partial => "replies" }
+    end
+  end
+
 end
