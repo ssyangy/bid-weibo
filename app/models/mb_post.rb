@@ -5,19 +5,28 @@ class MbPost
 	field :content
 	field :mb_replies_count, :type => Integer, :default => 0
 	field :forwards_count, :type => Integer, :default => 0
+	field :path_ids, :type => Array, :default => []
 	has_many :mb_pictures
 	has_many :mb_replies, :dependent => :destroy
-	has_many :forwards, :class_name => "MbPost", :inverse_of => :forward
-	belongs_to :forward, :class_name => "MbPost", :inverse_of => :forwards
 	belongs_to :user, :inverse_of => :mb_posts, :counter_cache => true
 	index({ mb_replies_count: 1 })
 
 	default_scope desc(:id)
 
-	after_create :update_homeline
+	after_create :update_homeline, :set_path_ids
 
 	def update_homeline
 		self.user.userline.push(mb_post_ids: self.id)
 		Homeline.where(:user_id.in => self.user.follower_ids_include_self).push(mb_post_ids: self.id)
 	end
+
+	def set_path_ids
+		MbPost.where(:id.in => self.path_ids).inc(forwards_count: 1)
+		self.set(path_ids: self.path_ids.push(self.id).flatten)
+	end
+
+	def has_many_path?
+		self.path_ids.size > 1
+	end
+
 end

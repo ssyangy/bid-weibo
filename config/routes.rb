@@ -62,6 +62,10 @@ BidWeibo::Application.routes.draw do
   resources :mb_posts, :path => "post" do
     collection do
       get :get_reply
+      post :forward
+    end
+    member do
+      get :repost
     end
   end
   resources :users, :path => "" do
