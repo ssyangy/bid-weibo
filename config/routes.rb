@@ -70,6 +70,7 @@ BidWeibo::Application.routes.draw do
   end
   resources :users, :path => "" do
     member do
+      get :attention
       get :myfans
       get :myfollow
       get :fans

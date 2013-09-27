@@ -13,11 +13,18 @@ class MbPost
 
 	default_scope desc(:id)
 
+	before_create :set_mentions
 	after_create :update_homeline, :set_path_ids
 
 	def update_homeline
 		self.user.userline.push(mb_post_ids: self.id)
 		Homeline.where(:user_id.in => self.user.follower_ids_include_self).push(mb_post_ids: self.id)
+	end
+
+	def set_mentions
+		self.content = self.content.gsub(/@([\p{Han}\p{Alnum}\-_]{3,24})/){|a| "<a href='/#{User.find_by(:nick_name => $1).try(:id)}'>@#{$1}</a>"}
+		#self.content.scan(/@[\p{Han}\p{Alnum}\-_]{3,24}/).each do |name|
+		#end
 	end
 
 	def set_path_ids

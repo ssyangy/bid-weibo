@@ -12,6 +12,13 @@ gem 'mongoid', github:'mongoid/mongoid'
 gem "will_paginate_mongoid", "~> 2.0.1"
 gem 'bootstrap-will_paginate'
 
+gem "twitter-text", github:'fermin/twitter-text-rb'
+
+#at
+gem "jquery-atwho-rails"
+
+gem "nokogiri"
+
 #paperclip
 gem "mini_magick"
 gem "paperclip", '3.5.1'

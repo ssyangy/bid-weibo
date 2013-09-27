@@ -70,4 +70,8 @@ class UsersController < ApplicationController
 		@users = @user.followees
 	end
 
+	def attention
+		render :json => [current_user.followers,current_user.followees].flatten.uniq.map(&:nick_name).to_json
+	end
+
 end

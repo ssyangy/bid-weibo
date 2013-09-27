@@ -8,7 +8,7 @@
 		</p>
 		<h4><%= link_to mb_post.title, mb_post if mb_post.title %></h4>
 		<div class="summary">
-			<%= mb_post.content %>
+			<%= raw mb_post.content %>
 			<div  style="background-color:#ededed;">
 				<%= render "mb_posts/origin_mb_post", :mb_post => MbPost.find(mb_post.path_ids.first) if mb_post.has_many_path? %>
 			</div>
