@@ -8,6 +8,24 @@
 					<%= render "mb_posts/mb_post", :mb_post => mb_post %>
 				<% end %>
 			</ul>
+			<%= will_paginate @mb_posts, :inner_window => 1 %>
 		</div>
 		<%= render "shared/day_topic" %>
 	</div>
+<div id="conversation_dialog" title="查看对话" style="display:none"></div>
+<div id="repost_dialog" title="转发微博" style="display:none"></div>
+<script type="text/javascript">
+	$(".homepage_reply_link").on("click",function(){
+		if($(this).parent().parent().find(".homepage_reply").is(":hidden")){
+			var param = $(this).attr("action_data");
+			var reply_link = $(this);
+			$.get("/post/get_reply?" + param,function(data){
+				reply_link.parent().parent().find(".homepage_reply").html(data);
+				reply_link.parent().parent().find(".homepage_reply").show();
+			})
+		}else{
+			$(this).parent().parent().find(".homepage_reply").html('');
+			$(this).parent().parent().find(".homepage_reply").hide();
+		}
+	});
+</script>

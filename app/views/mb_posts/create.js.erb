@@ -1,0 +1,6 @@
+<% if @mb_post.errors.blank? %>
+  $(".status-list").prepend("<%= escape_javascript(render(:partial => 'mb_post', :locals => { :mb_post => @mb_post})) %>");
+  $("#mb_post_content").val("");
+<% else %>
+  alert("<%= @mb_post.errors.full_messages %>");
+<% end %>

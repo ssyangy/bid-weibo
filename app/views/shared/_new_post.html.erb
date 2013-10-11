@@ -1,6 +1,13 @@
 <div class="post">
-	<form role="form">
-		<textarea class="form-control" rows="4"></textarea>
-		<button type="submit" class="btn btn-success pull-right btn-post">发布</button>
-	</form>
+	<%= form_for MbPost.new, :remote => true, :role => "form" do |f| %>
+  			<%= f.text_area :content, :class => "form-control", :row => "4" %>
+  			<%= f.submit '保存', :class => "btn btn-success pull-right btn-post" %>
+	<% end %>
 </div>
+<script type="text/javascript">
+	$("#mb_post_content").atwho({
+  		at: "@",
+  		limit: 20,
+  		data: "/users/attention.json"
+	});
+</script>

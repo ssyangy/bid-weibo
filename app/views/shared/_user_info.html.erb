@@ -3,14 +3,20 @@
 				<%= image_tag user.photo.url() %>
 				<p><%= link_to user.nick_name, user %></p>
 				<p><%= link_to '个人资料', edit_user_path(user) if user == current_user %></p>
+				<p>
+					<%= render "shared/friendship", :user => user if user != current_user %>
+				</p>
 			</div>
 			<ul>
-				<li><%= link_to "关注（#{user.follower_ids.size}）", user %></li>
-				<li><%= link_to "关注（#{user.following_ids.size}）", user %></li>
-			</ul>
-			<ul>
-				<li><a href="">评论我的</a></li>
-				<li><a href="">提到我的</a> <span class="label label-danger">3</span></li>
-				<li><a href="">私信</a></li>
+				<% if user == current_user %>
+					<li><%= link_to "粉丝（#{user.followers_count}）", myfans_user_path(user) %></li>
+					<li><%= link_to "关注（#{user.followees_count}）", myfollow_user_path(user) %></li>
+					<li><a href="">评论我的</a></li>
+					<li><a href="">提到我的</a> <span class="label label-danger">3</span></li>
+					<li><a href="">私信</a></li>
+				<% else %>
+					<li><%= link_to "他的粉丝（#{user.followers_count}）", fans_user_path(user) %></li>
+					<li><%= link_to "他的关注（#{user.followees_count}）", follow_user_path(user) %></li>
+				<% end %>
 			</ul>
 		</div>

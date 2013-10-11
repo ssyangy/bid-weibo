@@ -1,0 +1,20 @@
+<% @mb_replies.each do |mb_reply| %>
+  <li class="clearfix" id="<%= mb_reply.id %>">
+	<div class="avatar pull-left">
+		<%= image_tag mb_reply.user.photo.url(:thumb) %>
+	</div>
+	<div class="content">
+		<p class="author">
+			<%= link_to mb_reply.user.try(:nick_name), mb_reply.user %>
+		</p>
+		<div class="summary">
+			<%= mb_reply.content %>
+		</div>
+		<div class="meta">
+			<div class="info pull-left"><%= mb_time(mb_reply.try(:created_at)) %></div>
+			<div class="actions pull-right">
+				<%= link_to "回复", talk_mb_reply_path(mb_reply), :remote => true %>
+			</div>
+		</div>
+	</li>
+<% end %>

@@ -1,0 +1,2 @@
+$("#conversation_dialog").html("<%= escape_javascript(render 'conversation', :mb_replies => @mb_replies) %>");
+$("#conversation_dialog").dialog({height: 450,width:500 });

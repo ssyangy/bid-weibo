@@ -1,0 +1,15 @@
+	<div class="content">
+		<p class="author">
+			<%= link_to "@#{@origin_mb_post.user.nick_name}", @origin_mb_post.user %>:<%= @origin_mb_post.content %>
+		</p>
+	</div>
+	<div class="post">
+		<%= form_for(MbPost.new, :url => "/post/forward", :role => "form") do |f| %>
+  			<%= f.text_area :content, :class => "form-control", :row => "4", :value => raw(@value) %>
+  			<%= hidden_field_tag :mid, @mb_post.id %>
+  			<%= f.submit '保存', :class => "btn btn-success pull-right btn-post" %>
+		<% end %>
+	</div>
+<script type="text/javascript">
+$("#mb_post_content").focus();
+</script>

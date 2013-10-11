@@ -6,6 +6,18 @@ gem 'rails', '4.0.0'
 
 #mongo
 gem 'mongoid', github:'mongoid/mongoid'
+#gem 'mongo_followable'
+
+#will_paginate
+gem "will_paginate_mongoid", "~> 2.0.1"
+gem 'bootstrap-will_paginate'
+
+gem "twitter-text", github:'fermin/twitter-text-rb'
+
+#at
+gem "jquery-atwho-rails"
+
+gem "nokogiri"
 
 #paperclip
 gem "mini_magick"

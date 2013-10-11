@@ -53,6 +53,29 @@ BidWeibo::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :mb_posts
-  resources :users, :path => ""
+  resources :mb_replies do 
+    member do 
+      get :conversation
+      get :talk
+    end
+  end
+  resources :mb_posts, :path => "post" do
+    collection do
+      get :get_reply
+      post :forward
+    end
+    member do
+      get :repost
+    end
+  end
+  resources :users, :path => "" do
+    member do
+      get :attention
+      get :myfans
+      get :myfollow
+      get :fans
+      get :follow
+    end
+  end
+  resources :friendships
 end
